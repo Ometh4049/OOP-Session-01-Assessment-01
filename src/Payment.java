@@ -21,7 +21,7 @@ public class Payment {
     public void markAsCompleted(){
 //        this.status = "COMPLETED";
         this.setStatus("COMPLETED");
-        System.out.println(this.status);
+        System.out.println("Status : " + this.status);
     }
 
     public double getAmount(){
