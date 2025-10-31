@@ -1,5 +1,5 @@
 public class CashOnDelivery extends Payment {
-    public String deliveryAddress;
+    protected String deliveryAddress;
 
     public CashOnDelivery(double amount , String currency , String status ,String deliveryAddress){
         super(amount , currency , status);

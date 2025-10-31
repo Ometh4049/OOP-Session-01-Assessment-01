@@ -1,5 +1,5 @@
 public class CreditCardPayment extends CardPayment {
-    public double creditLimit;
+    protected double creditLimit;
 
     public CreditCardPayment(double amount , String currency , String status , String cardNumber , String cardHolderName , String expiryDate , double creditLimit){
         super(amount , currency , status , cardNumber , cardHolderName , expiryDate);
@@ -8,7 +8,7 @@ public class CreditCardPayment extends CardPayment {
 
     @Override
     public void processPayment(){
-        System.out.println("Charging credit card with limit" + this.creditLimit + " for amount " + super.amount);
+        System.out.println("Charging credit card with limit" + this.creditLimit + " for amount " + super.getAmount());
 
     }
 

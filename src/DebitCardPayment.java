@@ -9,7 +9,7 @@ public class DebitCardPayment extends CardPayment{
 
     @Override
     public void processPayment() {
-        System.out.println("Debiting from account balance " + this.availableBalance +" for amount " + super.amount);
+        System.out.println("Debiting from account balance " + this.availableBalance +" for amount " + super.getAmount());
     }
 
     public void checkSufficientBalance(){

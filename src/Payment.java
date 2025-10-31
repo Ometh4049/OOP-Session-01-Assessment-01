@@ -1,7 +1,7 @@
 public class Payment {
-    public double amount;
-    public String currency;
-    public String status;
+    protected double amount;
+    protected String currency;
+    protected String status;
 
 
     public Payment(double amount , String currency , String status){
@@ -19,8 +19,33 @@ public class Payment {
     }
 
     public void markAsCompleted(){
-        this.status = "COMPLETED";
+//        this.status = "COMPLETED";
+        this.setStatus("COMPLETED");
         System.out.println(this.status);
+    }
+
+    public double getAmount(){
+        return this.amount;
+    }
+
+    public String getCurrency(){
+        return this.currency;
+    }
+
+    public String getStatus(){
+        return this.status;
+    }
+
+    public void setAmount(double amount){
+        this.amount = amount;
+    }
+
+    public void setCurrency(String currency){
+        this.currency = currency;
+    }
+
+    public void setStatus(String status){
+        this.status = status;
     }
 
 

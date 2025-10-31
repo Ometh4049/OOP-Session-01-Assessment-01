@@ -1,7 +1,7 @@
 public class CardPayment extends Payment {
-    public String cardNumber;
-    public String cardHolderName;
-    public String expiryDate;
+    protected String cardNumber;
+    protected String cardHolderName;
+    protected String expiryDate;
 
     public CardPayment(double amount , String currency , String status , String cardNumber , String cardHolderName , String expiryDate){
         super(amount , currency , status);
