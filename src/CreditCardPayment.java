@@ -8,7 +8,7 @@ public class CreditCardPayment extends CardPayment {
 
     @Override
     public void processPayment(){
-        System.out.println("Charging credit card with limit" + this.creditLimit + " for amount " + super.getAmount());
+        System.out.println("Charging credit card with limit " + this.creditLimit + " for amount " + super.getAmount());
 
     }
 
