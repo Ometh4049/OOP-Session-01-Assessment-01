@@ -13,6 +13,12 @@ public class Main {
         ccpayment.processPayment();
         dcpayment.processPayment();
 
+        System.out.println();
+
+        cod.generateReceipt();
+        banktranser.generateReceipt();
+        ccpayment.generateReceipt();
+        dcpayment.generateReceipt();
 
 
 

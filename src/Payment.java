@@ -15,7 +15,7 @@ public class Payment {
     }
 
     public void generateReceipt(){
-        System.out.println("Receipt for amount " + this.amount + "in " + this.currency);
+        System.out.println("Receipt for amount " + this.amount + " in " + this.currency);
     }
 
     public void markAsCompleted(){
