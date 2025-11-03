@@ -23,12 +23,16 @@ public class CardPayment extends Payment {
 
         System.out.println("Validating Card Payment");
         if(this.cardNumber == null || this.cardNumber.isEmpty()){
+            System.out.println("Validation Failed");
             return false;
         }
         if(this.expiryDate == null || this.expiryDate.isEmpty()){
+            System.out.println("Validation Failed");
             return false;
         }
 
+        System.out.println("Validation Success");
+        System.out.println();
         return true;
 
 

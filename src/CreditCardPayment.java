@@ -8,11 +8,11 @@ public class CreditCardPayment extends CardPayment implements Discount {
 
     @Override
     public void processPayment(){
+        System.out.println("Processing Payment from Credit Card");
         System.out.println("Charging credit card with limit " + this.creditLimit + " for amount " + super.getAmount());
         super.markAsCompleted();
 
     }
-
 
 
     @Override

@@ -9,6 +9,7 @@ public class DebitCardPayment extends CardPayment implements Discount{
 
     @Override
     public void processPayment() {
+        System.out.println("Processing Payment from Debit Card");
         System.out.println("Debiting from account balance " + this.availableBalance +" for amount " + super.getAmount());
         super.markAsCompleted();
 

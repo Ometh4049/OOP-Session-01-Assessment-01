@@ -20,7 +20,6 @@ public class Main {
 
         for(Payment p : allpayments){
             p.processPayment();
-            p.getReference();
             p.generateReceipt();
 
         }

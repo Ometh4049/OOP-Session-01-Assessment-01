@@ -19,8 +19,11 @@ public class CashOnDelivery extends Payment {
         System.out.println("Validating delivery address...");
 
         if (this.deliveryAddress == null || this.deliveryAddress.isEmpty()) {
+            System.out.println("Validation Failed");
             return false;
         }
+        System.out.println("Validation Success");
+        System.out.println();
         return true;
     }
 

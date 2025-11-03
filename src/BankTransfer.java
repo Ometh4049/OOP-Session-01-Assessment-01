@@ -13,7 +13,7 @@ public class BankTransfer extends Payment {
     @Override
     public void processPayment(){
         System.out.println("Processing Payment from Bank Transfer");
-        System.out.println("Initiating bank transfer to " + this.bankName + " using account " + this.accountNumber + " with reference " + this.referenceCode);
+        System.out.println("Initiating bank transfer to " + this.bankName + " using account " + this.accountNumber + " with reference Id : " + super.referenceId);
         super.markAsCompleted();
 
     }
@@ -23,12 +23,16 @@ public class BankTransfer extends Payment {
 
         System.out.println("Validating Bank Transfer...");
         if(this.accountNumber==null || this.accountNumber.isEmpty()){
+            System.out.println("Validation Failed");
             return false;
         }
         if(this.bankName==null || this.bankName.isEmpty()){
+            System.out.println("Validation Failed");
             return false;
         }
 
+        System.out.println("Validation Success");
+        System.out.println();
         return true;
     }
 
