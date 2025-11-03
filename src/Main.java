@@ -6,38 +6,52 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
 
-//        step 01
-        CashOnDelivery cod = new CashOnDelivery(20000.00 , "LKR" , "PENDING","Colombo,Sri Lanka");
-        BankTransfer banktranser = new BankTransfer(30000.00 , "LKR" ,"PENDING" , "Commercial Bank" , "123123123" ,"9111");
-        CreditCardPayment ccpayment = new CreditCardPayment(40000.00 , "USD" , "PENDING" , "9823323209738012" , "Ometh Chandrasekara" , "09/27", 150000.00);
-        DebitCardPayment dcpayment = new DebitCardPayment(50000.00 , "INR" , "PENDING" , "5273836412350901" , "Virat Kohli" , "07/29", 50000.00);
+        CashOnDelivery cod = new CashOnDelivery(20000.00, "LKR", "PENDING", "TXN-1001","Colombo, Sri Lanka");
+        BankTransfer bankTransfer = new BankTransfer(30000.00, "LKR", "PENDING", "TXN-1001","Commercial Bank", "123123123", "9111");
+        CreditCardPayment ccPayment = new CreditCardPayment(40000.00, "USD", "PENDING","TXN-1001", "9823323209738012", "Ometh Chandrasekara", "09/27", 150000.00);
+        DebitCardPayment dcPayment = new DebitCardPayment(50000.00, "INR", "PENDING","TXN-1001", "5273836412350901", "Virat Kohli", "07/29", 55000.00);
 
-//        step 02
-        cod.processPayment();
-        banktranser.processPayment();
-        ccpayment.processPayment();
-        dcpayment.processPayment();
 
-        System.out.println();
+        ArrayList<Payment> allpayments = new ArrayList<>();
+        allpayments.add(cod);
+        allpayments.add(bankTransfer);
+        allpayments.add(ccPayment);
+        allpayments.add(dcPayment);
 
-//        step 03
-        cod.generateReceipt();
-        banktranser.generateReceipt();
-        ccpayment.generateReceipt();
-        dcpayment.generateReceipt();
+        for(Payment p : allpayments){
+            p.processPayment();
+            p.getReference();
+            p.generateReceipt();
 
-//        step 04
-        List<Payment> allPayments = new ArrayList<>();
-
-        allPayments.add(cod);
-        allPayments.add(banktranser);
-        allPayments.add(ccpayment);
-        allPayments.add(dcpayment);
-
-        for (Payment payment : allPayments) {
-            payment.processPayment();
         }
 
+        System.out.println();
+        System.out.println();
+
+        ArrayList<Payable> allpayables = new ArrayList<>();
+        allpayables.add(cod);
+        allpayables.add(bankTransfer);
+        allpayables.add(ccPayment);
+        allpayables.add(dcPayment);
+
+        for(Payable playable : allpayables){
+            playable.validate();
+            playable.getReference();
+        }
+
+
+        System.out.println();
+        System.out.println();
+
+        ArrayList<Discount> alldiscounts = new ArrayList<>();
+
+        alldiscounts.add(ccPayment);
+        allpayments.add(dcPayment);
+
+        for(Discount discount : alldiscounts){
+            discount.applyDiscount(20);
+            discount.finalAmount();
+        }
 
 
     }

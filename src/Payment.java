@@ -1,18 +1,20 @@
-public class Payment {
+public abstract class Payment implements Payable {
     protected double amount;
     protected String currency;
     protected String status;
+    protected String referenceId;
 
 
-    public Payment(double amount , String currency , String status){
+
+
+    public Payment(double amount , String currency , String status , String referenceId){
         this.amount = amount;
         this.currency = currency;
         this.status = status;
+        this.referenceId = referenceId;
     }
 
-    public void processPayment(){
-        System.out.println("Processing generic payment...");
-    }
+    public abstract void processPayment();
 
     public void generateReceipt(){
         System.out.println("Receipt for amount " + this.amount + " in " + this.currency);
@@ -22,6 +24,11 @@ public class Payment {
 //        this.status = "COMPLETED";
         this.setStatus("COMPLETED");
         System.out.println("Status : " + this.status);
+    }
+
+    @Override
+    public String getReference(){
+        return this.referenceId;
     }
 
     public double getAmount(){
@@ -47,6 +54,7 @@ public class Payment {
     public void setStatus(String status){
         this.status = status;
     }
+
 
 
 }

@@ -3,8 +3,8 @@ public class CardPayment extends Payment {
     protected String cardHolderName;
     protected String expiryDate;
 
-    public CardPayment(double amount , String currency , String status , String cardNumber , String cardHolderName , String expiryDate){
-        super(amount , currency , status);
+    public CardPayment(double amount , String currency , String status, String referenceId , String cardNumber , String cardHolderName , String expiryDate ){
+        super(amount , currency , status , referenceId );
         this.cardNumber = cardNumber;
         this.cardHolderName = cardHolderName;
         this.expiryDate = expiryDate;
@@ -12,10 +12,28 @@ public class CardPayment extends Payment {
 
     @Override
     public void processPayment(){
+        System.out.println("Processing Payment from Card Payment.");
         System.out.println("Authorizing card payment for " + this.cardHolderName);
+
     }
 
-    public void validateCard(){
-        System.out.println("Validating card number format...");
+
+    @Override
+    public boolean validate() {
+
+        System.out.println("Validating Card Payment");
+        if(this.cardNumber == null || this.cardNumber.isEmpty()){
+            return false;
+        }
+        if(this.expiryDate == null || this.expiryDate.isEmpty()){
+            return false;
+        }
+
+        return true;
+
+
+
     }
+
+
 }
